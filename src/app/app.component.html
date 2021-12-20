@@ -1,0 +1,10 @@
+<h1>Reactive Forms</h1>
+
+<nav>
+  <a (click)="toggleEditor('registrandopago')">Registrando pago</a>
+  <a (click)="toggleEditor('confirmandopago')">Confirmar pago</a>
+</nav>
+
+<app-profile-editor *ngIf="showRegistrandoPagoEditor"></app-profile-editor>
+
+<app-name-editor *ngIf="showConfirmandoPagoEditor"></app-name-editor>

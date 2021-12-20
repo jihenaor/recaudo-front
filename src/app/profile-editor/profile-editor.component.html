@@ -1,0 +1,30 @@
+<mat-stepper linear #stepper>
+  <mat-step [stepControl]="facturaFormGroup" [editable]="isEditable">
+    <form [formGroup]="facturaFormGroup">
+      <ng-template matStepLabel>Selecciona tu servicio</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Documento #</mat-label>
+        <input matInput formControlName="numerofactura" placeholder="Digite el numero de documento de la factura" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext (click)="continuar1()">Continuar</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step [editable]="isEditable">
+      <ng-template matStepLabel>Confirmar el pago</ng-template>
+      <div *ngIf="factura">
+        <p>Total: {{ factura.totalfactura }}</p>
+      </div>
+      <div>
+        <button mat-button (click)="stepper.reset()">Cancelar</button>
+        <button mat-button matStepperNext>Confirmar</button>
+      </div>
+  </mat-step>
+  
+  <mat-step disabled>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+  </mat-step>
+</mat-stepper>
