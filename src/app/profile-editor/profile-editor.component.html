@@ -14,16 +14,34 @@
   
   <mat-step [editable]="isEditable">
       <ng-template matStepLabel>Confirmar el pago</ng-template>
-      <div *ngIf="factura">
-        <p>Total: {{ factura.totalfactura }}</p>
+
+      <mat-spinner *ngIf="loading"></mat-spinner>
+
+      <div  *ngIf="!loading">
+        <div class="row" *ngIf="factura">
+          <p>Total: {{ factura.totalfactura | number }}</p>
+        </div>
+        <div class="row" *ngIf="factura">
+          <p>Total: {{ factura.totalfactura | number }}</p>
+        </div>
+        <div class="row">
+          <form [formGroup]="aFormGroup">
+            <ngx-recaptcha2 #captchaElem
+              [siteKey]="siteKey"
+              formControlName="recaptcha">
+            </ngx-recaptcha2>
+          </form>
+        </div>
       </div>
       <div>
         <button mat-button (click)="stepper.reset()">Cancelar</button>
-        <button mat-button matStepperNext>Confirmar</button>
+        <button mat-button matStepperNext (click)="continuar2()">Confirmar</button>
       </div>
   </mat-step>
   
   <mat-step disabled>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
   </mat-step>

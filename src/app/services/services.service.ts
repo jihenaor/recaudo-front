@@ -7,17 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class ServicesService {
   url_consultafactura = '/api/consultafactura';
+  url_session = '/api/session';
+  header = new HttpHeaders()
+  .set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { 
     
   }
 
   postConsultaFactura(data: any):Observable<any> {
-    let header = new HttpHeaders()
-                      .set('Content-Type', 'application/json');
-    console.log(data);
     return this.http.post(this.url_consultafactura, data, {
-      headers: header
+      headers: this.header
+    })
+  }
+
+  postSession(data: any):Observable<any> {
+    return this.http.post(this.url_session, data, {
+      headers: this.header
     })
   }
 }

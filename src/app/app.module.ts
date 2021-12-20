@@ -9,7 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     FormsModule,
     MatStepperModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxCaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
