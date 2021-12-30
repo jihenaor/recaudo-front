@@ -1,0 +1,5 @@
+<app-paso1 [paso]="paso" (siguientePaso)="paso = $event" (factura)="factura = $event" [hidden] = "hidenPaso1"></app-paso1>
+
+<app-paso2 [paso]="paso" (siguientePaso)="paso = $event" [factura]="factura" [hidden] = "hidenPaso2"></app-paso2>
+
+<app-paso3 [hidden] = "hidenPaso3"></app-paso3>

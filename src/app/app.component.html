@@ -1,10 +1,5 @@
-<h1>SERVICIUDAD</h1>
+<app-navbar></app-navbar>
 
-<nav>
-  <a (click)="toggleEditor('registrandopago')">Registrando pago</a>
-  <a (click)="toggleEditor('confirmandopago')">Confirmar pago</a>
-</nav>
+<router-outlet></router-outlet>
 
-<app-profile-editor *ngIf="showRegistrandoPagoEditor"></app-profile-editor>
-
-<app-name-editor *ngIf="showConfirmandoPagoEditor"></app-name-editor>
+<app-footer></app-footer>

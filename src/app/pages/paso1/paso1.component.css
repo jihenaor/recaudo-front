@@ -9,3 +9,13 @@ label {
   margin: .5em 0;
   font-weight: bold;
 }
+
+.div_botones {
+  display: inline-flex;
+  gap: 12px;
+
+}
+
+.element{
+  vertical-align: middle;
+}

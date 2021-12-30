@@ -1,0 +1,64 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <div class="row center">
+      <div class="col s12 m2">
+        <div class="centerBlock">
+        </div> 
+      </div>
+      <div class="col s12 m7">
+        <div class="centerBlock">
+          <h4 class="header center ">REALICE EL PAGO DE SU FACTURA AQUÍ DE FORMA ÁGIL Y SEGURA A TRAVÉS DE<strong></strong></h4>
+        </div>
+      </div>
+      <div class="col s12 m1">
+        <div class="centerBlock">
+        <img class="img-responsive" src="assets/images/pagopse.png">
+      </div>  
+    </div>
+    
+    <div class="row center">
+      <img src="assets/images/paso2.png" class="iresp" />
+      <br>
+    </div>
+    <div *ngIf="factura" class="row center">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s4"> 
+          </div>
+          <div class="input-field col s4">
+            <label for="icon_prefix">Cuenta</label>
+          </div>
+          <div class="input-field col s4">
+            <label for="icon_prefix">{{ factura.cuenta }} </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4"> 
+          </div>
+          <div class="input-field col s4">
+            <label for="icon_prefix">Numero de Fatura</label>
+          </div>
+          <div class="input-field col s4">
+            <label for="icon_prefix">{{ factura.idfactura }}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4"> 
+          </div>
+          <div class="input-field col s4">
+            <label for="icon_prefix">Valor</label>
+          </div>
+          <div class="input-field col s4">
+            <label for="icon_prefix"> {{ factura.totalfactura | number }}</label>
+          </div>
+        </div>
+        <div class="row">
+          <button mat-button matStepperNext class="btn-large waves-effect waves-light servi" (click)="regresar()">Regresar</button>
+          <button mat-button matStepperNext class="btn-large waves-effect waves-light servi" (click)="continuar()">Confirmar</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
