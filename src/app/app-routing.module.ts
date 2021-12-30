@@ -7,18 +7,17 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-
   },
   {
     path: 'finalizar',
     component: Paso3Component,
 
   },
-  { path: '**', component: HomeComponent },
+//  { path: '**', component: HomeComponent },
 ];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true, })],
+  exports: [RouterModule],
 })
+
 export class AppRoutingModule { }
