@@ -11,8 +11,8 @@ export class Paso3Component implements OnInit {
   constructor(private router: Router) { 
     const urlTree = this.router.parseUrl(this.router.url);
 
-   console.log(urlTree.queryParams['token']);
-   console.log(urlTree.queryParams['type']);
+    console.log(urlTree.queryParams['token']);
+    console.log(urlTree.queryParams['type']);
   }
 
   ngOnInit(): void {
