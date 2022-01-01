@@ -17,13 +17,20 @@
         <img src="assets/images/paso3.png" class="iresp" />
         <br>
       </div>
-      <div class="row center">
-        <form class="col s12">
+      
+      <div class="row">
+        <div class="input-field col s4"> 
+          <mat-spinner [diameter]="50" class="element" *ngIf="loading"></mat-spinner>
+        </div>
+      </div>
+
+      <div *ngIf="!loading" class="row center">
           <div class="row">
             <div class="input-field col s4"> 
+              <label for="icon_prefix">Estado de la Transacción</label>
             </div>
             <div class="input-field col s4">
-              <label for="icon_prefix">Estado de la Transacción</label>
+              <label for="icon_prefix">{{ status_status }}</label>
             </div>
           </div>
           <div class="row">
@@ -42,9 +49,10 @@
           </div>
           <div class="row">
             <div class="input-field col s4"> 
+              <label for="icon_prefix">Descripción</label>
             </div>
             <div class="input-field col s4">
-              <label for="icon_prefix">Descripción</label>
+              <label for="icon_prefix">{{ status_message }}</label>
             </div>
           </div>
           <div class="row">
@@ -56,14 +64,14 @@
           </div>
           <div class="row">
             <div class="input-field col s4"> 
+              <label for="icon_prefix">Fecha de Transacción</label>
             </div>
             <div class="input-field col s4">
-              <label for="icon_prefix">Fecha de Transacción</label>
+              <label for="icon_prefix">{{ status_date }}</label>
             </div>
           </div>
           <a href="https://www.serviciudad.gov.co" id="download-button" class="btn-large waves-effect waves-light servi">Salir</a>
           <a *ngIf="false" href="index.html" id="download-button" class="btn-large waves-effect waves-light servi">Imprimir</a>
-        </form>
       </div>
 
     </div>

@@ -6,4 +6,5 @@ export class Factura {
     totalfactura: number;
     fechapago: string;
     codRespuesta: 0
+    status: string;
 }

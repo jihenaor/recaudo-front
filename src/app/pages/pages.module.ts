@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MatInputModule } from '@angular/material/input';
     Paso1Component,
     Paso2Component,
     Paso3Component,
-    HomeComponent],
+    HomeComponent,
+    TestComponent],
   imports: [
     CommonModule,
     FormsModule,

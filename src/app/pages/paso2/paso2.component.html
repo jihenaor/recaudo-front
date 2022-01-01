@@ -53,8 +53,9 @@
           </div>
         </div>
         <div class="row">
-          <button mat-button matStepperNext class="btn-large waves-effect waves-light servi" (click)="regresar()">Regresar</button>
-          <button mat-button matStepperNext class="btn-large waves-effect waves-light servi" (click)="continuar()">Confirmar</button>
+          <button mat-button matStepperNext [disabled]="loading" class="btn-large waves-effect waves-light servi" (click)="regresar()">Regresar</button>
+          <button mat-button matStepperNext [disabled]="loading" class="btn-large waves-effect waves-light servi" (click)="continuar()">Confirmar</button>
+          <mat-spinner [diameter]="50" class="element" *ngIf="loading"></mat-spinner>
         </div>
       </form>
     </div>
