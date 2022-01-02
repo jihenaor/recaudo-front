@@ -48,11 +48,16 @@ export class Paso1Component implements OnInit {
 
     this.service.postConsultaFactura(this.facturaFormGroup.getRawValue()).subscribe(resp => {
       this.loading = false;
-      if (resp.status === 'PENDING') {
-        alert('La factura que intenta pagar esta en estado pendiente de pago.  Por favor termine la transacción o intentelo de nuevo en 30 minutos')
-      } else {
-        this.siguientePaso.emit('paso2');
-        this.factura.emit(resp);
+      switch (resp.status) {
+        case 'PENDING':
+          alert('La factura que intenta pagar esta en estado pendiente de pago.  Por favor termine la transacción o intentelo de nuevo en 30 minutos');
+          break;
+        case 'APPROVED':
+          alert('La factura se encuentra paga');
+          break;
+        default:
+          this.siguientePaso.emit('paso2');
+          this.factura.emit(resp);  
       }
     });
   }
