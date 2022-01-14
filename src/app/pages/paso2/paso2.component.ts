@@ -48,4 +48,8 @@ export class Paso2Component {
       window.location.href = resp.processUrl;
     });
   }
+
+  descargarFactura() {
+    window.open('https://www.serviciudad.gov.co/impfacturas/OnlinePdf/' + this.factura.cuenta + '.pdf', '_blank');
+  }
 }

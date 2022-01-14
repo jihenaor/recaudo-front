@@ -14,6 +14,8 @@ export class Paso3Component implements OnInit {
   status_date: string;
   status_status: string;
   status_message: string;
+  payment_amount_currency: string;
+  payment_amount_total: string;
 
   constructor(private route: ActivatedRoute,
     private service: ServicesService,) {
@@ -40,12 +42,18 @@ export class Paso3Component implements OnInit {
       switch (resp.status.status) {
         case 'APPROVED':
           this.status_status = 'APROBADO';
+          this.payment_amount_currency = resp.request.payment.amount.currency;
+          this.payment_amount_total = resp.request.payment.amount.total;
           break;
         default:
           this.status_status = resp.status.status;
       }
       
       this.status_message = resp.status.message;
+    },
+    error => {
+      this.loading = false;
+      alert('Se ha presentado un error')
     });
   }
 

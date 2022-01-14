@@ -46,7 +46,7 @@
           <div class="input-field col s4"> 
           </div>
           <div class="input-field col s4">
-            <label for="icon_prefix">Valor</label>
+            <label for="icon_prefix">Valor (COP)</label>
           </div>
           <div class="input-field col s4">
             <label for="icon_prefix"> {{ factura.totalfactura | number }}</label>
@@ -54,6 +54,7 @@
         </div>
         <div class="row">
           <button mat-button matStepperNext [disabled]="loading" class="btn-large waves-effect waves-light servi" (click)="regresar()">Regresar</button>
+          <button mat-button matStepperNext [disabled]="loading" class="btn-large waves-effect waves-light servi" (click)="descargarFactura()">Descargar Factura</button>
           <button mat-button matStepperNext [disabled]="loading" class="btn-large waves-effect waves-light servi" (click)="continuar()">Confirmar</button>
           <mat-spinner [diameter]="50" class="element" *ngIf="loading"></mat-spinner>
         </div>

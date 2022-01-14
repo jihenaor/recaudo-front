@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { TestComponent } from './test/test.component';
+import { ValidarpagoComponent } from './validarpago/validarpago.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TestComponent } from './test/test.component';
     Paso2Component,
     Paso3Component,
     HomeComponent,
-    TestComponent],
+    TestComponent,
+    ValidarpagoComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { Paso3Component } from './pages/paso3/paso3.component';
 import { TestComponent } from './pages/test/test.component';
+import { ValidarpagoComponent } from './pages/validarpago/validarpago.component';
 
 const routes: Routes = [
   {
@@ -12,12 +13,14 @@ const routes: Routes = [
   {
     path: 'finalizar/:codsuscrip/:idfactura',
     component: Paso3Component,
-
+  },
+  {
+    path: 'validarpago',
+    component: ValidarpagoComponent,
   },
   {
     path: 'test',
     component: TestComponent,
-
   },
 //  { path: '**', component: HomeComponent },
 ];
