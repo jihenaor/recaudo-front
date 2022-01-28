@@ -27,7 +27,7 @@ export class Paso1Component implements OnInit {
 
   ngOnInit() {
     this.facturaFormGroup = this._formBuilder.group({
-      codsuscrip: ['', Validators.required],
+      codsuscrip: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(3), Validators.maxLength(15)]],
     });
 
     this.aFormGroup = this._formBuilder.group({
@@ -44,11 +44,15 @@ export class Paso1Component implements OnInit {
   }
 
   consultarSaldoCuenta() {
+    
+    if (this.facturaFormGroup.invalid) {
+      alert('Digite un numero de cuenta');
+      return;
+    }
     this.loading = true;
 
     this.service.postConsultaFactura(this.facturaFormGroup.getRawValue()).subscribe(
       resp => {
-        debugger;
         this.loading = false;
         if (!resp || resp === null || !resp.status) {
           alert('El número de cuenta digitado no existe');

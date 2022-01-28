@@ -1,10 +1,7 @@
 export class PagoRequest {
-    codsuscrip: string;
-    idfactura: string;
+    id: string;
 
-    constructor(codsuscrip: string, idfactura: string) {
-        this.codsuscrip = codsuscrip;
-        this.idfactura = idfactura;
+    constructor(id: string) {
+        this.id = id;
     }
-        
 }

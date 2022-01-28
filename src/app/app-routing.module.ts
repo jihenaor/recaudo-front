@@ -11,7 +11,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'finalizar/:codsuscrip/:idfactura',
+    path: 'finalizar/:id',
     component: Paso3Component,
   },
   {

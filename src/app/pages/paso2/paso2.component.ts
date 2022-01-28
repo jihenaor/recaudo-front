@@ -46,6 +46,10 @@ export class Paso2Component {
     this.service.postSession({"codsuscrip": this.factura.cuenta}).subscribe(resp => {
       this.loading = false;
       window.location.href = resp.processUrl;
+    },
+    error => {
+      this.loading = false;
+      alert('Se ha presentado un error, por favor intente de nuevo la operacion mas tarde')
     });
   }
 

@@ -11,11 +11,7 @@ import { ServicesService } from 'src/app/services/services.service';
 export class Paso3Component implements OnInit {
   pagorequest: PagoRequest;
   loading: boolean = false;
-  status_date: string;
-  status_status: string;
-  status_message: string;
-  payment_amount_currency: string;
-  payment_amount_total: string;
+  respuesta: any;
 
   constructor(private route: ActivatedRoute,
     private service: ServicesService,) {
@@ -23,11 +19,9 @@ export class Paso3Component implements OnInit {
   }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id') as string;
 
-    const codsuscrip = this.route.snapshot.paramMap.get('codsuscrip') as string;
-    const idfactura = this.route.snapshot.paramMap.get('idfactura') as string;
-
-    this.pagorequest = new PagoRequest(codsuscrip, idfactura);
+    this.pagorequest = new PagoRequest(id);
 
     this.loading = true;
     this.pagarFactura();
@@ -38,18 +32,7 @@ export class Paso3Component implements OnInit {
 
     this.service.postPagarFactura(this.pagorequest).subscribe(resp => {
       this.loading = false;
-      this.status_date = resp.status.date;
-      switch (resp.status.status) {
-        case 'APPROVED':
-          this.status_status = 'APROBADO';
-          this.payment_amount_currency = resp.request.payment.amount.currency;
-          this.payment_amount_total = resp.request.payment.amount.total;
-          break;
-        default:
-          this.status_status = resp.status.status;
-      }
-      
-      this.status_message = resp.status.message;
+      this.respuesta = resp;
     },
     error => {
       this.loading = false;
