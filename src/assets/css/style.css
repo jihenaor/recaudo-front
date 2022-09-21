@@ -16,9 +16,9 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
-.servi1{ 
+.servi1 {
   color:  #0079ba;
-  font-size: 3vw;
+  font-size: 2vw;
   padding: 0px 100px;
  }
 .servihe{
@@ -29,6 +29,7 @@
   background-color:  #0079ba;
   margin-top: 25px;
 }
+
 .b1{
   background-color: #0F0F0F;
 }

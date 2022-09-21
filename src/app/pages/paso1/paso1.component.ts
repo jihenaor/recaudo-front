@@ -65,6 +65,10 @@ export class Paso1Component implements OnInit {
                 alert('La factura se encuentra paga');
                 break;
               default:
+                if (resp.facturavencida === 'S') {
+                  alert('La factura se encuentra vencida. ');
+                  break;
+                }
                 if (resp.aplicado == 'S') {
                   alert('La factura se encuentra paga');
                   break;

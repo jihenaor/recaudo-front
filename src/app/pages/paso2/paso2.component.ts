@@ -44,8 +44,15 @@ export class Paso2Component {
     this.loading = true;
 
     this.service.postSession({"codsuscrip": this.factura.cuenta}).subscribe(resp => {
-      this.loading = false;
-      window.location.href = resp.processUrl;
+      if (resp.requestId === 0) {
+        alert('Existe un intento de pago en curso, es probable que ya haya iniciado una transacción u otra persona la haya iniciado en otro lugar.  Intente de nuevo en 10 minutos');
+        this.loading = false;
+        return;
+      } else {
+        this.loading = false;
+        window.location.href = resp.processUrl;
+      }
+
     },
     error => {
       this.loading = false;
@@ -54,6 +61,6 @@ export class Paso2Component {
   }
 
   descargarFactura() {
-    window.open('https://www.serviciudad.gov.co/impfacturas/OnlinePdf/' + this.factura.cuenta + '.pdf', '_blank');
+    window.open('https://www.serviciudad.gov.co/impfacturas/' + this.factura.ciclo + '/' + this.factura.cuenta + '.pdf', '_blank');
   }
 }

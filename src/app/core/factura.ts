@@ -8,4 +8,5 @@ export class Factura {
     codRespuesta: 0
     status: string;
     aplicado: string;
+    ciclo: string;
 }
