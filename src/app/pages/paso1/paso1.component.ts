@@ -31,9 +31,7 @@ export class Paso1Component implements OnInit {
       codsuscrip: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(3), Validators.maxLength(15)]],
     });
 
-    this.aFormGroup = this._formBuilder.group({
-      recaptcha: ['', Validators.required]
-    });
+
   }
 
   continuar() {

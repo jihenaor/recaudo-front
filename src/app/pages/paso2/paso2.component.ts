@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { UntypedFormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
-import { ReCaptchaV3Service } from 'ngx-captcha';
 import { Factura } from 'src/app/core/factura';
 import { ServicesService } from 'src/app/services/services.service';
 import { EditorType } from '../home/home.component';
@@ -18,21 +17,12 @@ export class Paso2Component {
   @Input() facturas: Factura[];
 
   loading: boolean = false;
-  captcha: string;
-  email: string;
-  siteKey: string;
+
 
   constructor(private _formBuilder: UntypedFormBuilder,
-              private service: ServicesService,
-              private reCaptchaV3Service: ReCaptchaV3Service) {
-    this.captcha = '';
-    this.email = 'jihenaor@gmail.com';
-    this.siteKey = '6Ldp77YdAAAAAGcbhuotBuauCT5-sOvyrDFGEObE';
-  }
+              private service: ServicesService) {
+   }
 
-  resolved(captchaResponse: string) {
-    this.captcha = captchaResponse;
-  }
 
   regresar() {
     this.siguientePaso.emit('paso1');
