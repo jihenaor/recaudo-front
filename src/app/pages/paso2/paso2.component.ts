@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { UntypedFormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { ReCaptchaV3Service } from 'ngx-captcha';
 import { Factura } from 'src/app/core/factura';
 import { ServicesService } from 'src/app/services/services.service';
@@ -22,7 +22,7 @@ export class Paso2Component {
   email: string;
   siteKey: string;
 
-  constructor(private _formBuilder: FormBuilder,
+  constructor(private _formBuilder: UntypedFormBuilder,
               private service: ServicesService,
               private reCaptchaV3Service: ReCaptchaV3Service) {
     this.captcha = '';

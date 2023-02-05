@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Factura } from 'src/app/core/factura';
 import { ServicesService } from '../../services/services.service';
 import { EditorType } from '../home/home.component';
@@ -11,7 +11,7 @@ import { EditorType } from '../home/home.component';
   providers: [ServicesService]
 })
 export class Paso1Component implements OnInit {
-  facturaFormGroup: FormGroup;
+  facturaFormGroup: UntypedFormGroup;
   isEditable = false;
   @Input() paso: string;
   @Output() siguientePaso = new EventEmitter<EditorType>();
@@ -20,9 +20,9 @@ export class Paso1Component implements OnInit {
 
   loading: boolean = false;
 
-  aFormGroup: FormGroup;
+  aFormGroup: UntypedFormGroup;
 
-  constructor(private _formBuilder: FormBuilder,
+  constructor(private _formBuilder: UntypedFormBuilder,
     private service: ServicesService,) {
   }
 
