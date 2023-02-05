@@ -15,6 +15,7 @@ export class Paso2Component {
   @Output() siguientePaso = new EventEmitter<EditorType>();
 
   @Input() factura: Factura;
+  @Input() facturas: Factura[];
 
   loading: boolean = false;
   captcha: string;
@@ -31,8 +32,6 @@ export class Paso2Component {
 
   resolved(captchaResponse: string) {
     this.captcha = captchaResponse;
-
-    console.log('Resolved captcha with response: ' + this.captcha);
   }
 
   regresar() {

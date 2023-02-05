@@ -42,6 +42,40 @@
         </div>
         
       </form>
+
+      <div  class="row center">
+        <div *ngIf="facturas" class="row center">
+          <div>
+            <h1>Facturas pendientes de pago </h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numero de factura</th>
+                        <th>Tipo de factura</th>
+                        <th>Valor total</th>
+                        <th>Fecha de pago</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let factura of facturas">
+                        <th>{{ factura.idfactura }}</th>
+                        <th>{{ getDescripciontipofactura(factura.tipofact) }}</th>
+                        <td>{{ factura.totalfactura | number}}</td>
+                        <td>{{ factura.fechapago }}</td>
+    
+                        <td>
+                          <button mat-button matStepperNext [disabled]="loading" class="btn-large waves-effect waves-light servi">Descargar Factura</button>
+                        </td>
+                        <td>
+                          <button mat-button matStepperNext [disabled]="loading" class="btn-large waves-effect waves-light servi">Confirmar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+
     </div>
   </div>
 </div>

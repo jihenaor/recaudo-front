@@ -16,6 +16,7 @@ export class Paso1Component implements OnInit {
   @Input() paso: string;
   @Output() siguientePaso = new EventEmitter<EditorType>();
   @Output() factura = new EventEmitter<Factura>();
+  public facturas: Factura[] = [];
 
   loading: boolean = false;
 
@@ -36,13 +37,15 @@ export class Paso1Component implements OnInit {
   }
 
   continuar() {
-    this.consultarSaldoCuenta();
+//    this.consultarSaldoCuenta();
+    this.consultarFacturas();
   }
 
   regresar() {
-    this.consultarSaldoCuenta();
+//    this.consultarSaldoCuenta();
   }
 
+  /*
   consultarSaldoCuenta() {
     
     if (this.facturaFormGroup.invalid) {
@@ -87,5 +90,53 @@ export class Paso1Component implements OnInit {
         
       }
     );
+  }
+*/
+  consultarFacturas() {
+    
+    if (this.facturaFormGroup.invalid) {
+      alert('Digite un numero de cuenta');
+      return;
+    }
+    this.loading = true;
+
+    this.service.postConsultaFacturas(this.facturaFormGroup.getRawValue()).subscribe(
+      resp => {
+        this.loading = false;
+
+        if (!resp || resp === null || resp.length === 0) {
+          alert('El número de cuenta digitado no existe o no existen facturas pendientes de pago ');
+        } else {
+          this.facturas = resp;
+        }
+      },
+      error => {
+        alert('Se ha presentado un error. Por favor intente realizar el pago mas tarde');
+        this.loading = false;
+      },
+      () => {
+        
+      }
+    );
+  }
+
+  getDescripciontipofactura(tipofactura: string) {
+    const tipo = Number(tipofactura);
+
+    switch (tipo) {
+      case 0:
+        return "PAGO TOTAL";
+      case 1:
+        return 'pago cuota inicial financiación';
+      case 2:
+        return 'Abono por reclamo';
+      case 3:
+          return "pago parcial";
+      case 4:
+        return 'Pago anticipado'
+      case 8:
+        return 'Cobro reorganizacion empresarial'
+    }
+    return '';
   }
 }

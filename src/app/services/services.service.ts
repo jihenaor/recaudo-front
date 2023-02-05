@@ -12,6 +12,7 @@ export class ServicesService {
   url_session = environment.url_base + 'session';
   url_pagarfactura = environment.url_base + 'pagarfactura';
   url_test = environment.url_base + 'test';
+  url_consultafacturas = environment.url_base + 'consultafacturas';
 
   header = new HttpHeaders()
   .set('Content-Type', 'application/json');
@@ -54,4 +55,9 @@ export class ServicesService {
   getTest(): Observable<any> {
     return this.http.get<any>(this.url_test)
   }
+
+  postConsultaFacturas(data: any):Observable<any> {
+    return this.http.post(this.url_consultafacturas, data)
+  }
+
 }
