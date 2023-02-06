@@ -4,13 +4,13 @@ import { Paso1Component } from './paso1/paso1.component';
 import { Paso2Component } from './paso2/paso2.component';
 import { Paso3Component } from './paso3/paso3.component';
 import { HomeComponent } from './home/home.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { TestComponent } from './test/test.component';
 import { ValidarpagoComponent } from './validarpago/validarpago.component';
 
