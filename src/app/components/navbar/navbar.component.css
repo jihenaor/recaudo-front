@@ -1,0 +1,13 @@
+.navbar{
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+}
+
+.container{
+  margin-top: 60px;
+}
+
+.alto{
+  height: 600px;
+}
