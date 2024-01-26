@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  font-size: 1.2rem;
+  min-height: 100%;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.header {
+  grid-area: header;
+  background-color: #85aedd;
+}
+
+.main {
+  text-align: center;
+  grid-area: main;
+  background-color: white;
+
+  margin-left: 50px;
+  margin-right: 50px
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template:
+    "header"  
+    "main"   auto
+    "footer"
+}
+
+
+.page-footer {
+  padding-top: 20px;
+  color: #fff;
+}
+
+.page-footer .footer-copyright {
+  overflow: hidden;
+  min-height: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 0px;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(51, 51, 51, 0.08);
+}
+
+.mapa {
+  width:450px; 
+  height: 180px;
+  border: 0;
+}
+
+.img-responsive {
+  max-width: 90px;
+}
+
+@media (min-width: 600px) {
+  .mapa {
+    width:100% ;
+    height: 40%;
+    border: 0;
+  }
+  .img-responsive {
+    max-width: 70px;
+  }
+  
+}
+
+.b1{
+  background-color: #0F0F0F;
+}
+.b2{
+  color: black;
+}
+
+.grey-text {
+  color: #9e9e9e !important;
+}
+
+.grey-text.text-lighten-4 {
+  color: #f5f5f5 !important;
+}
+
+input {
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+  width: 200px;
+}
+
+input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+button {
+  background-color: blue;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.textopago {
+  display: flex;
+  padding: 5px;
+}
+
+.img-responsive {
+  max-width: 90px;
+}
+
+.iresp {
+  display: block;
+  margin: 0 auto;
+  max-width: 70%;
+  padding: 10px 0;
+}
+
+.iresp2{
+  display: block;
+  margin: 0 auto;
+  max-width: 350px;
+  padding: 10px 0
+}
+
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+ h4 {
+  font-size: 3vw;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+.servi1 {
+  color:  #0079ba;
+  font-size: 2vw;
+
+ }
+.servihe{
+  background-color:  #0079ba;
+  height: 100px;
+}
+.servi{
+  background-color:  #0079ba;
+  margin-top: 25px;
+}
+
+.center-block {
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+.text-center {
+  text-align:center
+}
+
+.FlexContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  flex-direction: row;
+}
+
+.FlexContainer div {
+  margin: 5px;
+  width: 100%;
+}
