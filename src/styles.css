@@ -42,7 +42,7 @@ body {
   display: grid;
   gap: 10px;
   grid-template:
-    "header"  
+    "header"
     "main"   auto
     "footer"
 }
@@ -74,7 +74,7 @@ body {
 }
 
 .mapa {
-  width:450px; 
+  width:450px;
   height: 180px;
   border: 0;
 }
@@ -92,7 +92,7 @@ body {
   .img-responsive {
     max-width: 70px;
   }
-  
+
 }
 
 .b1{
@@ -182,7 +182,7 @@ button {
 .servi1 {
   color:  #0079ba;
   font-size: 2vw;
-
+  margin-top: 10px;
  }
 .servihe{
   background-color:  #0079ba;

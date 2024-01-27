@@ -13,6 +13,8 @@ import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/materia
 import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { TestComponent } from './test/test.component';
 import { ValidarpagoComponent } from './validarpago/validarpago.component';
+import { PaymentInstructionsComponent } from './components/PaymentInstructions/PaymentInstructions.component';
+import { ServiceSelectionComponent } from './components/ServiceSelection/ServiceSelection.component';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { ValidarpagoComponent } from './validarpago/validarpago.component';
     Paso3Component,
     HomeComponent,
     TestComponent,
-    ValidarpagoComponent],
+    ValidarpagoComponent,
+    ],
   imports: [
     CommonModule,
     FormsModule,
@@ -30,6 +33,8 @@ import { ValidarpagoComponent } from './validarpago/validarpago.component';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    PaymentInstructionsComponent,
+    ServiceSelectionComponent
   ],
   exports: [
     HomeComponent

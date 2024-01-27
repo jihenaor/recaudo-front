@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Factura } from 'src/app/core/factura';
 import { ServicesService } from '../../services/services.service';
 import { EditorType } from '../home/home.component';
@@ -11,7 +11,7 @@ import { EditorType } from '../home/home.component';
   providers: [ServicesService]
 })
 export class Paso1Component implements OnInit {
-  facturaFormGroup: UntypedFormGroup;
+  facturaFormGroup: FormGroup;
   isEditable = false;
   @Input() paso: string;
   @Output() siguientePaso = new EventEmitter<EditorType>();
@@ -27,11 +27,10 @@ export class Paso1Component implements OnInit {
   }
 
   ngOnInit() {
-    this.facturaFormGroup = this._formBuilder.group({
-      codsuscrip: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(3), Validators.maxLength(15)]],
+    this.facturaFormGroup = new FormGroup({
+      codsuscrip: new FormControl('', [Validators.required,
+          Validators.pattern("^[0-9]*$"), Validators.minLength(3), Validators.maxLength(15)]),
     });
-
-
   }
 
   continuar() {
@@ -45,7 +44,7 @@ export class Paso1Component implements OnInit {
 
   /*
   consultarSaldoCuenta() {
-    
+
     if (this.facturaFormGroup.invalid) {
       alert('Digite un numero de cuenta');
       return;
@@ -75,7 +74,7 @@ export class Paso1Component implements OnInit {
                   break;
                 } else {
                   this.siguientePaso.emit('paso2');
-                  this.factura.emit(resp);  
+                  this.factura.emit(resp);
                 }
           }
         }
@@ -85,13 +84,13 @@ export class Paso1Component implements OnInit {
         this.loading = false;
       },
       () => {
-        
+
       }
     );
   }
 */
   consultarFacturas() {
-    
+
     if (this.facturaFormGroup.invalid) {
       alert('Digite un numero de cuenta');
       return;
@@ -113,7 +112,7 @@ export class Paso1Component implements OnInit {
         this.loading = false;
       },
       () => {
-        
+
       }
     );
   }
