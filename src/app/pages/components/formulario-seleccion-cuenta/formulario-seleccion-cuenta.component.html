@@ -1,0 +1,25 @@
+<form [formGroup]="facturaFormGroup">
+  <section class='FlexContainer'>
+    <div>
+      <div>
+        <ng-template matStepLabel>Selecciona tu servicio</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Cuenta</mat-label>
+          <input matInput formControlName="codsuscrip" placeholder="Digite el número de documento de la factura"
+            maxlength="14" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <div class="div_botones">
+        <button mat-button [disabled]="loadingService.loading() && !facturaFormGroup.valid"
+          class="btn-large waves-effect waves-light servi element" (click)="buscarFacturas()">
+          Continuar
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+</form>

@@ -55,9 +55,4 @@ export class ServicesService {
   getTest(): Observable<any> {
     return this.http.get<any>(this.url_test)
   }
-
-  postConsultaFacturas(data: any):Observable<any> {
-    return this.http.post(this.url_consultafacturas, data)
-  }
-
 }

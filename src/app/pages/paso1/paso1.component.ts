@@ -35,7 +35,7 @@ export class Paso1Component implements OnInit {
 
   continuar() {
 //    this.consultarSaldoCuenta();
-    this.consultarFacturas();
+//    this.consultarFacturas();
   }
 
   regresar() {
@@ -89,6 +89,7 @@ export class Paso1Component implements OnInit {
     );
   }
 */
+/*
   consultarFacturas() {
 
     if (this.facturaFormGroup.invalid) {
@@ -116,7 +117,7 @@ export class Paso1Component implements OnInit {
       }
     );
   }
-
+*/
   getDescripciontipofactura(tipofactura: string) {
     const tipo = Number(tipofactura);
 

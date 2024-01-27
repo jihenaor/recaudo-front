@@ -216,3 +216,7 @@ button {
   margin: 5px;
   width: 100%;
 }
+
+.element{
+  vertical-align: middle;
+}

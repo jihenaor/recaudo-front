@@ -4,17 +4,17 @@ import { Paso1Component } from './paso1/paso1.component';
 import { Paso2Component } from './paso2/paso2.component';
 import { Paso3Component } from './paso3/paso3.component';
 import { HomeComponent } from './home/home.component';
-import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
-
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { TestComponent } from './test/test.component';
 import { ValidarpagoComponent } from './validarpago/validarpago.component';
 import { PaymentInstructionsComponent } from './components/PaymentInstructions/PaymentInstructions.component';
-import { ServiceSelectionComponent } from './components/ServiceSelection/ServiceSelection.component';
+
+import { FormularioSeleccionCuentaComponent } from './components/formulario-seleccion-cuenta/formulario-seleccion-cuenta.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { ServiceSelectionComponent } from './components/ServiceSelection/Service
     MatInputModule,
     MatProgressSpinnerModule,
     PaymentInstructionsComponent,
-    ServiceSelectionComponent
+    FormularioSeleccionCuentaComponent
   ],
   exports: [
     HomeComponent
