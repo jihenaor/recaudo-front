@@ -10,8 +10,3 @@ label {
   font-weight: bold;
 }
 
-.div_botones {
-  display: inline-flex;
-  gap: 12px;
-
-}

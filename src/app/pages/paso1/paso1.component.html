@@ -3,69 +3,14 @@
 
     <app-payment-instructions></app-payment-instructions>
 
-    <app-formulario-seleccion-cuenta></app-formulario-seleccion-cuenta>
+    @if (consultarFacturasService.facturas() && consultarFacturasService.facturas().length > 0) {
+      <app-cancelpayment></app-cancelpayment>
+    }
 
-    <form [formGroup]="facturaFormGroup">
-      <section class='FlexContainer'>
-        <div>
-          <div>
-            <ng-template matStepLabel>Selecciona tu servicio</ng-template>
-            <mat-form-field appearance="fill">
-              <mat-label>Cuenta</mat-label>
-              <input matInput formControlName="codsuscrip" placeholder="Digite el número de documento de la factura"
-                maxlength="14" required>
-            </mat-form-field>
-          </div>
-        </div>
-        <div>
-          <div class="div_botones">
-            <button mat-button matStepperNext [disabled]="loading && !facturaFormGroup.valid"
-              class="btn-large waves-effect waves-light servi element" (click)="continuar()">
-              Continuar
-            </button>
-            <mat-spinner [diameter]="50" class="element" *ngIf="loading"></mat-spinner>
-          </div>
-
-        </div>
-      </section>
-
-    </form>
-
-    <div class="row center">
-      <div *ngIf="facturas" class="row center">
-        <div>
-          <h1>Facturas pendientes de pago </h1>
-          <table>
-            <thead>
-              <tr>
-                <th>Numero de factura</th>
-                <th>Tipo de factura</th>
-                <th>Valor total</th>
-                <th>Fecha de pago</th>
-                <th colspan="2"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let factura of facturas">
-                <th>{{ factura.idfactura }}</th>
-                <th>{{ getDescripciontipofactura(factura.tipofact) }}</th>
-                <td>{{ factura.totalfactura | number}}</td>
-                <td>{{ factura.fechapago }}</td>
-
-                <td>
-                  <button mat-button matStepperNext [disabled]="loading"
-                    class="btn-large waves-effect waves-light servi">Descargar Factura</button>
-                </td>
-                <td>
-                  <button mat-button matStepperNext [disabled]="loading"
-                    class="btn-large waves-effect waves-light servi">Confirmar</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-
-    </div>
+    @if (consultarFacturasService.facturas() && consultarFacturasService.facturas().length == 0) {
+      <app-formulario-seleccion-cuenta></app-formulario-seleccion-cuenta>
+    }
+    @if (consultarFacturasService.facturas() && consultarFacturasService.facturas().length > 0) {
+      <app-facturas-con-saldo></app-facturas-con-saldo>
+    }
   </div>

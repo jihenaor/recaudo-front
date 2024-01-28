@@ -1,0 +1,36 @@
+<div class="row center">
+  <div class="row center">
+    <div>
+      <h4>Facturas pendientes de pago </h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Numero de factura</th>
+            <th>Tipo de factura</th>
+            <th>Valor total</th>
+            <th>Fecha de pago</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (factura of consultarFacturasService.facturas(); track factura.idfactura) {
+            <tr>
+              <th>{{ factura.idfactura }}</th>
+              <th>{{ getDescripciontipofactura(factura.tipofact) }}</th>
+              <td>{{ factura.totalfactura}}</td>
+              <td>{{ factura.fechapago }}</td>
+
+              <td>
+                <app-botondescargar [factura]="factura"></app-botondescargar>
+              </td>
+              <td>
+                <button mat-button matStepperNext
+                  class="btn-large waves-effect waves-light servi">Confirmar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

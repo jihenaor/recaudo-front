@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { UntypedFormBuilder} from '@angular/forms';
 import { Factura } from 'src/app/core/factura';
 import { ServicesService } from '../../services/services.service';
 import { EditorType } from '../home/home.component';
+import { ConsultarFacturasService } from 'src/app/services/consultarFacturas.service';
 
 @Component({
   selector: 'app-paso1',
@@ -10,27 +11,11 @@ import { EditorType } from '../home/home.component';
   styleUrls: ['./paso1.component.css'],
   providers: [ServicesService]
 })
-export class Paso1Component implements OnInit {
-  facturaFormGroup: FormGroup;
-  isEditable = false;
-  @Input() paso: string;
-  @Output() siguientePaso = new EventEmitter<EditorType>();
-  @Output() factura = new EventEmitter<Factura>();
-  public facturas: Factura[] = [];
-
-  loading: boolean = false;
-
-  aFormGroup: UntypedFormGroup;
+export class Paso1Component {
+  public consultarFacturasService = inject(ConsultarFacturasService);
 
   constructor(private _formBuilder: UntypedFormBuilder,
     private service: ServicesService,) {
-  }
-
-  ngOnInit() {
-    this.facturaFormGroup = new FormGroup({
-      codsuscrip: new FormControl('', [Validators.required,
-          Validators.pattern("^[0-9]*$"), Validators.minLength(3), Validators.maxLength(15)]),
-    });
   }
 
   continuar() {
@@ -118,23 +103,5 @@ export class Paso1Component implements OnInit {
     );
   }
 */
-  getDescripciontipofactura(tipofactura: string) {
-    const tipo = Number(tipofactura);
 
-    switch (tipo) {
-      case 0:
-        return "PAGO TOTAL";
-      case 1:
-        return 'pago cuota inicial financiación';
-      case 2:
-        return 'Abono por reclamo';
-      case 3:
-          return "pago parcial";
-      case 4:
-        return 'Pago anticipado'
-      case 8:
-        return 'Cobro reorganizacion empresarial'
-    }
-    return '';
-  }
 }

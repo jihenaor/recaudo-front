@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoadingService } from '../../../services/Loading.service';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-formulario-seleccion-cuenta',
@@ -13,7 +14,7 @@ import { LoadingService } from '../../../services/Loading.service';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-
+    MatInputModule
   ],
   templateUrl: './formulario-seleccion-cuenta.component.html'
 })
@@ -36,6 +37,5 @@ export class FormularioSeleccionCuentaComponent {
       }
 
       this.consultarFacturasService.postConsultaFacturas(this.facturaFormGroup.getRawValue());
-
     }
 }

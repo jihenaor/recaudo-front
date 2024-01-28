@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ConsultarFacturasService } from 'src/app/services/consultarFacturas.service';
 
 @Component({
   selector: 'app-payment-instructions',
@@ -18,12 +19,19 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       </div>
     </div>
 
-    <div class="row center">
-      <img src="assets/images/paso1.png" class="iresp" />
-
-      <p class="servi1">Digite en la casilla el <strong>número de cuenta de usuario</strong> que se encuentra en la
-        sección del Usuario de SERVICIUDAD E.S.P.</p>
-    </div>`,
+    @if (consultarFacturasService.facturas() && consultarFacturasService.facturas().length == 0) {
+      <div class="row center">
+        <!--
+        <img src="assets/images/paso1.png" class="iresp" />
+  -->
+        <p class="servi1">Digite en la casilla el <strong>número de cuenta de usuario</strong> que se encuentra en la
+          sección del Usuario de SERVICIUDAD E.S.P.</p>
+      </div>
+    }
+    `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PaymentInstructionsComponent { }
+export class PaymentInstructionsComponent {
+  public consultarFacturasService = inject(ConsultarFacturasService);
+
+}

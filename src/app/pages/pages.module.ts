@@ -15,6 +15,10 @@ import { FormularioSeleccionCuentaComponent } from './components/formulario-sele
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FacturasConSaldoComponent } from './components/facturas-con-saldo/facturas-con-saldo.component';
+import { CancelpaymentComponent } from './components/cancelpayment/cancelpayment.component';
+import { BotondescargarComponent } from './components/botondescargar/botondescargar.component';
+import { BotonContinuarPagoComponent } from './components/boton-continuar-pago/boton-continuar-pago.component';
 
 
 @NgModule({
@@ -33,8 +37,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
+
     PaymentInstructionsComponent,
-    FormularioSeleccionCuentaComponent
+    FormularioSeleccionCuentaComponent,
+    FacturasConSaldoComponent,
+    CancelpaymentComponent,
+    BotondescargarComponent,
+    BotonContinuarPagoComponent
   ],
   exports: [
     HomeComponent

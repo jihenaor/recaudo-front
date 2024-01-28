@@ -181,7 +181,7 @@ button {
 }
 .servi1 {
   color:  #0079ba;
-  font-size: 2vw;
+  font-size: 1.5vw;
   margin-top: 10px;
  }
 .servihe{
@@ -190,6 +190,11 @@ button {
 }
 .servi{
   background-color:  #0079ba;
+  margin-top: 25px;
+}
+
+.cancel{
+  background-color:  red;
   margin-top: 25px;
 }
 
@@ -214,9 +219,14 @@ button {
 
 .FlexContainer div {
   margin: 5px;
-  width: 100%;
 }
 
 .element{
   vertical-align: middle;
+}
+
+.div_botones {
+  display: inline-flex;
+  gap: 12px;
+
 }
