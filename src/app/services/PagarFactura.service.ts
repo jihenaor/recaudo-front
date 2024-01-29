@@ -1,59 +1,45 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Factura } from '../core/factura';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from './Loading.service';
+import { PagoResponse } from '../core/PagoResponse';
+import { PagoRequest } from '../core/pagorequest';
 
 interface State {
-  facturas: Factura[] | null;
-  consultando: boolean;
+  pagoResponse: PagoResponse | null;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConsultarFacturasService {
+export class PagarFacturaService {
   private http = inject(HttpClient);
   public loadingService = inject(LoadingService);
 
-  public facturas = computed(() => this.#state().facturas || []);
-  public consultando = computed(() => this.#state().consultando);
+  public pagoResponse = computed(() => this.#state().pagoResponse || null);
 
   #state = signal<State>({
-    facturas: [],
-    consultando: false
+    pagoResponse: null
   })
 
-  public postConsultaFacturas(data: any): void {
+  public postPagarFactura(data: PagoRequest): void {
     this.loadingService.setLoading(true);
 
     this.http
-    .post<Factura[]>(`${environment.url_base}/consultafacturas`, data)
+    .post<PagoResponse>(`${environment.url_base}/pagarfactura`, data)
     .subscribe({
-      next: (resp: Factura[]) => {
+      next: (resp: PagoResponse) => {
 
         this.loadingService.setLoading(false);
         this.#state.set({
-          facturas: resp,
-          consultando: true
+          pagoResponse: resp
         });
-
-        if (!resp || resp.length === 0) {
-          alert('El número de cuenta digitado no existe o no existen facturas pendientes de pago ');
-        }
       },
       error: (error) => {
         this.loadingService.setLoading(false);
         console.error('Error al consultar facturas:', error);
         alert('Error al realizar la consulta. Por favor intente más tarde.');
       }
-    });
-  }
-
-  clear() {
-    this.#state.set({
-      facturas: [],
-      consultando: false
     });
   }
 }

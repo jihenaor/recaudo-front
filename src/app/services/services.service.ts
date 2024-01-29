@@ -9,7 +9,6 @@ import { PagoRequest } from '../core/pagorequest';
 })
 export class ServicesService {
   url_consultafactura = environment.url_base + 'consultafactura';
-  url_pagarfactura = environment.url_base + 'pagarfactura';
   url_test = environment.url_base + 'test';
   url_consultafacturas = environment.url_base + 'consultafacturas';
 
@@ -39,11 +38,6 @@ export class ServicesService {
     return this.http.post(this.url_consultafactura, data)
   }
 
-  postPagarFactura(data: PagoRequest):Observable<any> {
-    return this.http.post(this.url_pagarfactura, data, {
-      headers: this.header
-    })
-  }
 
   getTest(): Observable<any> {
     return this.http.get<any>(this.url_test)

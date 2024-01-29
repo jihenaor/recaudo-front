@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ConsultarFacturasService } from 'src/app/services/consultarFacturas.service';
+import { StepperComponent } from '../stepper/stepper.component';
 
 @Component({
   selector: 'app-payment-instructions',
   standalone: true,
   imports: [
     CommonModule,
+    StepperComponent
   ],
   template: `
     <div class="row center">
@@ -20,13 +22,17 @@ import { ConsultarFacturasService } from 'src/app/services/consultarFacturas.ser
     </div>
 
     @if (consultarFacturasService.facturas() && consultarFacturasService.facturas().length == 0) {
+      <app-stepper [step]="1"></app-stepper>
       <div class="row center">
         <!--
         <img src="assets/images/paso1.png" class="iresp" />
   -->
+
         <p class="servi1">Digite en la casilla el <strong>número de cuenta de usuario</strong> que se encuentra en la
           sección del Usuario de SERVICIUDAD E.S.P.</p>
       </div>
+    } @else {
+      <app-stepper [step]="2"></app-stepper>
     }
     `,
   changeDetection: ChangeDetectionStrategy.OnPush,

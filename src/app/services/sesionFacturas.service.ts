@@ -20,7 +20,7 @@ interface State {
 export class SessionFacturasService {
   private http = inject(HttpClient);
   public loadingService = inject(LoadingService);
-  url_session = environment.url_base + 'session';
+  url_session = environment.url_base + '/sessionevertec';
 
   postSession(data: FacturaRequest): Observable<ClientEvertecResponse> {
     return this.http.post<ClientEvertecResponse>(this.url_session, data);

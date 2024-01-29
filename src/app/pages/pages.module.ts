@@ -19,6 +19,8 @@ import { FacturasConSaldoComponent } from './components/facturas-con-saldo/factu
 import { CancelpaymentComponent } from './components/cancelpayment/cancelpayment.component';
 import { BotondescargarComponent } from './components/botondescargar/botondescargar.component';
 import { BotonContinuarPagoComponent } from './components/boton-continuar-pago/boton-continuar-pago.component';
+import { MensajeGraciasUsarServiciosComponent } from './components/mensaje-gracias-usar-servicios/mensaje-gracias-usar-servicios.component';
+import { StepperComponent } from './components/stepper/stepper.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { BotonContinuarPagoComponent } from './components/boton-continuar-pago/b
     FacturasConSaldoComponent,
     CancelpaymentComponent,
     BotondescargarComponent,
-    BotonContinuarPagoComponent
+    BotonContinuarPagoComponent,
+    MensajeGraciasUsarServiciosComponent,
+    StepperComponent
   ],
   exports: [
     HomeComponent
