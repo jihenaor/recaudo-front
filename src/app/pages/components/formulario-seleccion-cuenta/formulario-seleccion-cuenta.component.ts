@@ -36,6 +36,11 @@ export class FormularioSeleccionCuentaComponent {
         return;
       }
 
-      this.consultarFacturasService.postConsultaFacturas(this.facturaFormGroup.getRawValue());
+      try {
+        this.consultarFacturasService.postConsultaFacturas(this.facturaFormGroup.getRawValue());
+      } catch (error) {
+        alert('Error')
+      }
+
     }
 }

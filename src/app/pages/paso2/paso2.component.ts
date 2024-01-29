@@ -30,6 +30,7 @@ export class Paso2Component {
   }
 
   continuar() {
+    /*
     this.loading = true;
 
     this.service.postSession({"codsuscrip": this.factura.cuenta}).subscribe(resp => {
@@ -47,6 +48,7 @@ export class Paso2Component {
       this.loading = false;
       alert('Se ha presentado un error, por favor intente de nuevo la operacion mas tarde')
     });
+    */
   }
 
   descargarFactura() {

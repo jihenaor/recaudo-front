@@ -25,28 +25,38 @@ export class ConsultarFacturasService {
     consultando: false
   })
 
-  constructor() {
-  }
-
   public postConsultaFacturas(data: any): void {
     this.loadingService.setLoading(true);
 
     this.http
-      .post<Factura[]>(`${environment.url_base}/consultafacturas`, data)
-      .subscribe((resp: Factura[]) => {
+    .post<Factura[]>(`${environment.url_base}/consultafacturas`, data)
+    .subscribe({
+      next: (resp: Factura[]) => {
+
         this.loadingService.setLoading(false);
         this.#state.set({
           facturas: resp,
           consultando: true
         });
-      });
-   }
 
-   clear() {
+        if (!resp || resp.length === 0) {
+          alert('El número de cuenta digitado no existe o no existen facturas pendientes de pago ');
+        }
+      },
+      error: (error) => {
+
+        this.loadingService.setLoading(false);
+        console.error('Error al consultar facturas:', error);
+        alert('Error al realizar la consulta. Por favor intente más tarde.');
+      }
+    });
+  }
+
+  clear() {
     this.#state.set({
       facturas: [],
       consultando: false
     });
-   }
+  }
 
 }

@@ -1,8 +1,12 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Factura } from '../core/factura';
+
 import { environment } from 'src/environments/environment';
 import { LoadingService } from './Loading.service';
+import { Observable } from 'rxjs';
+import { ClientEvertecResponse } from '../core/ClientEvertecResponse';
+import { FacturaRequest } from '../core/FacturaRequest';
 
 
 interface State {
@@ -13,40 +17,12 @@ interface State {
 @Injectable({
   providedIn: 'root'
 })
-export class ConsultarFacturasService {
+export class SessionFacturasService {
   private http = inject(HttpClient);
   public loadingService = inject(LoadingService);
+  url_session = environment.url_base + 'session';
 
-  public facturas = computed(() => this.#state().facturas || []);
-  public consultando = computed(() => this.#state().consultando);
-
-  #state = signal<State>({
-    facturas: [],
-    consultando: false
-  })
-
-  constructor() {
+  postSession(data: FacturaRequest): Observable<ClientEvertecResponse> {
+    return this.http.post<ClientEvertecResponse>(this.url_session, data);
   }
-
-  public postConsultaFacturas(data: any): void {
-    this.loadingService.setLoading(true);
-
-    this.http
-      .post<Factura[]>(`${environment.url_base}/consultafacturas`, data)
-      .subscribe((resp: Factura[]) => {
-        this.loadingService.setLoading(false);
-        this.#state.set({
-          facturas: resp,
-          consultando: true
-        });
-      });
-   }
-
-   clear() {
-    this.#state.set({
-      facturas: [],
-      consultando: false
-    });
-   }
-
 }
